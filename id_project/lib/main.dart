@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-  home:Card()
+  home:Test()
 ));
 
-class  Card extends StatelessWidget {
+
+class Test extends StatefulWidget {
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+
+  int developerlevel=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +23,14 @@ class  Card extends StatelessWidget {
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
       ),
+      floatingActionButton:FloatingActionButton(onPressed: (){
+        setState(() {
+          developerlevel+=1;
+        });
+      },
+      child: Icon(Icons.add),
+      backgroundColor: Colors.grey[800],
+      ) ,
       body: Padding(padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0)
       ,child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +68,7 @@ class  Card extends StatelessWidget {
             ),),
             SizedBox(height:10.0),
             Text(
-            'DEVELOPING APPS',
+            '$developerlevel',
             style: TextStyle(
               color:Colors.amberAccent[200],
               letterSpacing:2.0,
